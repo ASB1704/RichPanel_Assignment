@@ -20,10 +20,8 @@ export const SignIn = () => {
   }, []);
 
   const handleSignIn = () => {
-    // Perform sign-up logic
     console.log("Sign in clicked");
 
-    // Store email and rememberMe in local storage
     if (rememberMe) {
       localStorage.setItem("username", email);
       localStorage.setItem("checkbox", "true");

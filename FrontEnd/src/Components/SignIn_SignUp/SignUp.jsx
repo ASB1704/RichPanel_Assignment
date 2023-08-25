@@ -24,7 +24,6 @@ export const SignUp = () => {
     // Perform sign-up logic
     console.log("Sign up clicked");
 
-    // Store email and rememberMe in local storage
     if (rememberMe) {
       localStorage.setItem("username", email);
       localStorage.setItem("checkbox", "true");
