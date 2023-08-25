@@ -40,21 +40,31 @@ export const SignUp = () => {
         <div className="signup-container">
           <h2>Create Account</h2>
           <form>
+            <div className="div1">
+
             <label htmlFor="text">Name</label>
             <input type="text" id="text" value={name} onChange={(e) => setName(e.target.value)} />
 
+            </div>
+
+            <div className="div1">
             <label htmlFor="email">Email</label>
             <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            </div>
 
+            <div>
             <label htmlFor="pass">Password</label>
             <input type="password" id="pass" value={password} onChange={(e) => setPassword(e.target.value)} />
+            </div>
 
-            <input
+           <div className="div2">
+           <input
               type="checkbox"
               checked={rememberMe}
               onChange={(e) => setRememberMe(e.target.checked)}
             />
             <label htmlFor="rememberMe">Remember me</label>
+           </div>
 
             <input
               type="submit"

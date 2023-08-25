@@ -39,18 +39,24 @@ export const SignIn = () => {
         <div className="signin-container">
           <h2>Login to your account</h2>
           <form>
+          <div>
             <label htmlFor="email">Email</label>
             <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            </div>
 
+            <div>
             <label htmlFor="pass">Password</label>
             <input type="password" id="pass" value={password} onChange={(e) => setPassword(e.target.value)} />
+            </div>
 
-            <input
+            <div className="div2">
+           <input
               type="checkbox"
               checked={rememberMe}
               onChange={(e) => setRememberMe(e.target.checked)}
             />
             <label htmlFor="rememberMe">Remember me</label>
+           </div>
 
             <input
               type="submit"

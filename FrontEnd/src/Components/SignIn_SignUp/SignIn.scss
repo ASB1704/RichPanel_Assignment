@@ -7,16 +7,30 @@
   background-color: #1e4d91;
 
   .signin-container {
+    
     width: 20rem;
     margin: 0 auto;
     padding: 20px;
-    border-radius: 5px;
-    background-color: #fff;
+    border-radius: 1rem;
 
+    background-color: #fff;
+    h2{
+      margin-left: 2rem;
+     }
     form {
+      .div1{
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+      .div2{
+        display: flex;
+        gap: 0.3rem;
+      }
       max-width: 300px;
 
       input {
+
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;

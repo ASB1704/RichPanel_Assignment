@@ -10,11 +10,23 @@
   width: 20rem;
   margin: 0 auto;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 1rem;
   background-color: #fff;
+}
+.SignIn-wrapper .signin-container h2 {
+  margin-left: 2rem;
 }
 .SignIn-wrapper .signin-container form {
   max-width: 300px;
+}
+.SignIn-wrapper .signin-container form .div1 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.SignIn-wrapper .signin-container form .div2 {
+  display: flex;
+  gap: 0.3rem;
 }
 .SignIn-wrapper .signin-container form input {
   -webkit-appearance: none;
