@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
   name: String,
   email: String,
   password: String,
-},{collection: 'User'});
+},{collection: 'user'});
 
 userSchema.pre('save', async function (next) {
   if (!this.isModified('password')) return next();

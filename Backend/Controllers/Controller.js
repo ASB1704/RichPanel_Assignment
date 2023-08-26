@@ -21,15 +21,18 @@ async function signin(req, res) {
   try {
     const user = await UserModel.findOne({ email });
     if (!user) {
-      return res.status(401).send('Invalid email or password.');
+      return res.status(401).send('User not found');
     }
 
-    const isPasswordValid = await user.comparePassword(password);
-    if (!isPasswordValid) {
-      return res.status(401).send('Invalid email or password.');
-    }
-
-    res.status(200).send('Signin successful.');
+    bcrypt.compare(password, user.password, (err,response) => {
+      if(err) console.log(err);
+      console.log(response);
+      if (response) {
+        return res.status(200).send('Signin successful.');
+      } else {
+        return res.status(401).send('Invalid email or password.');
+      }
+    })
   } catch (error) {
     console.error('Error during signin:', error);
     res.status(500).send('Error during signin.');

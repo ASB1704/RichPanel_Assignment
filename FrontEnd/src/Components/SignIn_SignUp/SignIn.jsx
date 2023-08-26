@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
 import "./SignIn.css";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export const SignIn = () => {
@@ -19,15 +20,22 @@ export const SignIn = () => {
     }
   }, []);
 
-  const handleSignIn = () => {
-    console.log("Sign in clicked");
-
-    if (rememberMe) {
+  const handleSignIn = async (e) => {
+    e.preventDefault()
+    const data = await axios.post('http://localhost:3000/api/signIn',{email, password})
+    console.log(data);
+    if(data.status == 500) {
+      alert('Please verify your credentials')
+    }
+    if (data.status == 200) {
+      if(rememberMe){
       localStorage.setItem("username", email);
       localStorage.setItem("checkbox", "true");
-    } else {
-      localStorage.removeItem("username");
-      localStorage.removeItem("checkbox");
+      } else {
+        localStorage.removeItem("username");
+        localStorage.removeItem("checkbox");
+      }
+      navigate('/Subscription_Model')
     }
   };
 
@@ -60,12 +68,12 @@ export const SignIn = () => {
               type="submit"
               value="Sign Up"
               id="signUpButton"
-              onClick={handleSignIn}
+              onClick={(e)=>handleSignIn(e)}
             />
           </form>
           <p>
             New to MyApp?{" "}
-            <span onClick={() => navigate("/")}>Sign Up</span>
+            <span onClick={() => navigate("/")}>Login</span>
           </p>
         </div>
       </div>

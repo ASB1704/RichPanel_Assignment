@@ -1,9 +1,12 @@
+/* eslint-disable no-unused-vars */
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
 import "./SignUp.css";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export const SignUp = () => {
+
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -20,8 +23,9 @@ export const SignUp = () => {
     }
   }, []);
 
-  const handleSignUp = () => {
-    // Perform sign-up logic
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+    const data = await axios.post("http://localhost:3000/api/signUp",{name,email,password})
     console.log("Sign up clicked");
 
     if (rememberMe) {
@@ -38,7 +42,7 @@ export const SignUp = () => {
       <div className="SignUp-wrapper">
         <div className="signup-container">
           <h2>Create Account</h2>
-          <form>
+          <form onSubmit={(e)=>handleSignUp(e)}>
             <div className="div1">
 
             <label htmlFor="text">Name</label>
@@ -69,7 +73,6 @@ export const SignUp = () => {
               type="submit"
               value="Sign Up"
               id="signUpButton"
-              onClick={handleSignUp}
             />
           </form>
           <p>
