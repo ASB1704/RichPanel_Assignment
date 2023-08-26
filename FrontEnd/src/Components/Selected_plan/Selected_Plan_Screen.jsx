@@ -1,10 +1,10 @@
 import './Selected_plan_Screen.css'
 import { useGlobalContext } from "../../StateContext";
 import { useNavigate } from "react-router-dom";
-
+import axios from 'axios'
 export const Selected_plan_Screen = () => {
   const navigate = useNavigate();
-  const {user} = useGlobalContext();
+  const {user,setuser} = useGlobalContext();
 
   const devices = user.plan.devices;
   const formattedDevices = devices.join(" + ");
@@ -15,7 +15,36 @@ export const Selected_plan_Screen = () => {
 
   const subscriptionStartDate = new Date(user.plan.dateofsubscription);
   const planCycle = user.plan.cycle;
+  const handleCancelPlan = async () => {
+    try {
+        const updatedUser = {
+            ...user,
+            plan: {
+                cycle: null,
+                name: null,
+                price: null,
+                devices: [],
+                state: 'cancelled',
+                dateofsubscription: null
+            }
+        };
 
+        const { data } = await axios.put(`${import.meta.env.VITE_BACKEND_URI}/UpdateUser`, updatedUser);
+        console.log(data, "asdhfosd");
+
+        setuser({
+          ...user,
+          plan: {
+              ...user.plan,
+              state: "cancelled"
+          }
+        });
+    } catch (error) {
+        console.error(error);
+    }
+};
+  
+  
   const renewalDate = new Date(subscriptionStartDate);
   if (planCycle === "monthly") {
     renewalDate.setMonth(renewalDate.getMonth() + 1);
@@ -73,7 +102,7 @@ export const Selected_plan_Screen = () => {
 
             </div>
           </div >
-          <div className="CurretnContainer_item_in2">
+          <div className="CurretnContainer_item_in2" onClick={handleCancelPlan}>
             {user.plan.state === "active" ?
               <div className=''>
                 Cancel

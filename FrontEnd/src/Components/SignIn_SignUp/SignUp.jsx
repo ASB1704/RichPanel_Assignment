@@ -48,7 +48,7 @@ export const SignUp = () => {
   return (
     <div className="SignUp-wrapper">
       <div className="signup-container">
-        <h2>Create Account</h2>
+        <h3>Create Account</h3>
         <form onSubmit={handleSignUp}>
           <div className="div1">
             <label htmlFor="text">Name</label>

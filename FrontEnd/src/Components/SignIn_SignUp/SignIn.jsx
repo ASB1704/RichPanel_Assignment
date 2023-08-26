@@ -42,7 +42,8 @@ export const SignIn = () => {
         localStorage.removeItem("username");
         localStorage.removeItem("checkbox");
       }
-      navigate('/Subscription_Model')
+      if(data.user.plan.state === "active")navigate('/Selected_plan_Screen')
+      else navigate('/Subscription_Model')
     }
   };
 
@@ -50,7 +51,7 @@ export const SignIn = () => {
     <>
       <div className="SignIn-wrapper">
         <div className="signin-container">
-          <h2>Login to your account</h2>
+          <h4>Login to your account</h4>
           <form>
           <div>
             <label htmlFor="email">Email</label>

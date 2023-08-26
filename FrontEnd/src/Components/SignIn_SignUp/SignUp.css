@@ -7,16 +7,18 @@
   background-color: #1e4d91;
 }
 .SignUp-wrapper .signup-container {
-  width: 20rem;
+  padding: 3rem;
+  width: 23rem;
   margin: 0 auto;
-  padding: 20px;
   border-radius: 1rem;
   background-color: #fff;
 }
-.SignUp-wrapper .signup-container h2 {
-  margin-left: 3.5rem;
+.SignUp-wrapper .signup-container h3 {
+  text-align: center;
+  font-weight: 600;
 }
 .SignUp-wrapper .signup-container form {
+  font-weight: 600;
   max-width: 300px;
 }
 .SignUp-wrapper .signup-container form .div1 {
@@ -52,6 +54,7 @@
   margin-bottom: 0.5rem;
 }
 .SignUp-wrapper .signup-container form input[type=submit] {
+  cursor: pointer;
   background-color: #015294;
   border: none;
   color: #fff;
@@ -61,6 +64,9 @@
 .SignUp-wrapper .signup-container form label {
   color: #666;
   font-size: 0.875rem;
+}
+.SignUp-wrapper .signup-container p {
+  text-align: center;
 }
 .SignUp-wrapper .signup-container p span {
   color: #325c9a;
