@@ -6,7 +6,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Subscription_Model } from "./Components/Subscription_Mode;/Subscription_Model";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
-import { Selected_plan_Screen } from "./Components/Selected_plan/Selected_plan_Screen";
+import { Selected_plan_Screen } from "./Components/Selected_plan/Selected_Plan_Screen";
+
 
 function App() {
   const stripePromise = loadStripe(
