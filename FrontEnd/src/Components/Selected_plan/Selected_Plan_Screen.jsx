@@ -5,16 +5,17 @@ import axios from "axios";
 export const Selected_plan_Screen = () => {
   const navigate = useNavigate();
   const { user, setuser } = useGlobalContext();
-
   const devices = user?.plan.devices;
   const formattedDevices = devices?.join(" + ");
-
   const price = user?.plan.price;
   const cycle = user?.plan.cycle;
   const cycleText = cycle === "monthly" ? "/mo" : "/yr";
-
   const subscriptionStartDate = new Date(user?.plan.dateofsubscription);
   const planCycle = user?.plan.cycle;
+
+// <------------------------------------------------------------>
+
+
   const handleCancelPlan = async () => {
     try {
       const updatedUser = {
@@ -65,7 +66,8 @@ export const Selected_plan_Screen = () => {
     return formattedDate.replace(`${day}`, `${day}${suffix}`);
   }
 
-  function getDaySuffix(day) {
+
+  const  getDaySuffix = (day)=> {
     if (day >= 11 && day <= 13) {
       return "th";
     }
@@ -83,6 +85,9 @@ export const Selected_plan_Screen = () => {
 
   const formattedStartDate = formatDate(subscriptionStartDate);
   const formattedRenewalDate = formatDate(renewalDate);
+
+
+// <------------------------------------------------------------>
 
   return (
     <div className="CurrentMain">

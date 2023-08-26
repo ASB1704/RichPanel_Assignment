@@ -8,7 +8,6 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { Selected_plan_Screen } from "./Components/Selected_plan/Selected_Plan_Screen";
 
-
 function App() {
   const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
@@ -20,7 +19,10 @@ function App() {
           <Route path="/SignIn" element={<SignIn />} />
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/Subscription_Model" element={<Subscription_Model />} />
-          <Route path="/Selected_plan_Screen" element={<Selected_plan_Screen />} />
+          <Route
+            path="/Selected_plan_Screen"
+            element={<Selected_plan_Screen />}
+          />
           <Route
             path="/Payment_Screen"
             element={

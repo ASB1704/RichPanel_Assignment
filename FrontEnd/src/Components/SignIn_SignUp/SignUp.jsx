@@ -11,6 +11,9 @@ export const SignUp = () => {
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
 
+// <------------------------------------------------------------>
+
+
   useEffect(() => {
     const storedEmail = localStorage.getItem("username");
     const storedRememberMe = localStorage.getItem("checkbox");
@@ -24,11 +27,14 @@ export const SignUp = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/signUp`, {
-        name,
-        email,
-        password,
-      });
+      const response = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URI}/signUp`,
+        {
+          name,
+          email,
+          password,
+        }
+      );
       console.log("Sign up successful", response.data);
 
       if (rememberMe) {
@@ -44,6 +50,9 @@ export const SignUp = () => {
       console.error("Sign up failed", error);
     }
   };
+
+// <------------------------------------------------------------>
+
 
   return (
     <div className="SignUp-wrapper">
@@ -99,6 +108,3 @@ export const SignUp = () => {
     </div>
   );
 };
-
-
-
