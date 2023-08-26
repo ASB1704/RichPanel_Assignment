@@ -3,7 +3,7 @@ const { isEmail } = require("validator");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const TOKEN_KEY = process.env.TOKEN_KEY;
-const stripe = require('stripe')('sk_test_51Nj6ADSCa6BY8pPxnAr8EBHyZ9e6BzGhfXvFZsfjX3orVc4AHmBw2Erj0Cu83FHDkzL8wW7ahMqNahCW68zlFKGb00K0gyloYp'); 
+const stripe = require('stripe')(process.env.STRIPE_KEY); 
 
 const LOGIN = async (req, res) => {
   try {

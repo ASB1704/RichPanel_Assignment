@@ -10,9 +10,7 @@ import { Selected_plan_Screen } from "./Components/Selected_plan/Selected_Plan_S
 
 
 function App() {
-  const stripePromise = loadStripe(
-    "pk_test_51Nj6ADSCa6BY8pPxkDffCTuLJaPbkbErf8RWFGI0npLAFvYl2GmCDSAC32fmmoYvMJgeT59rYIJ99b2QzeFDpkAy00CHsKCfVy"
-  );
+  const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
   return (
     <>
