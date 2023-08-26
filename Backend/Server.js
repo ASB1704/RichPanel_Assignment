@@ -10,7 +10,7 @@ require('dotenv').config();
 app.use(express.json());
 app.use(cors())
 
-mongoose.connect(process.env.MONGODB_URI_DEV, {
+mongoose.connect(process.env.MONGODB_URI_PROD, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     dbName: 'Dummydb', 
