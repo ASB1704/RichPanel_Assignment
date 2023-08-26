@@ -1,0 +1,120 @@
+.CurrentMain {
+    background-color: blue;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CurretnContainer {
+    background-color: white;
+    width: 37%;
+    height: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1rem;
+}
+
+.CurretnContainer_item1 {
+    /* border: 1px solid green; */
+    height: 19%;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CurretnContainer_item_in1 {
+    /* border: 1px solid green; */
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.CurretnContainer_item_in11 {
+    /* border: 1px solid red; */
+    width: 60%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.CurretnContainer_item_in12 {
+    /* border: 1px solid red; */
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    color: white;
+    font-size: .9rem;
+    border-radius: .3rem;
+}
+
+.CurretnContainer_item_in13 {
+    width: 20%;
+}
+
+.CurretnContainer_item_in2 {
+    width: 40%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    color: blue;
+}
+
+.CurretnContainer_item2 {
+    /* border: 1px solid rgb(172, 115, 115); */
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* align-items: center; */
+}
+
+.CurretnContainer_item2_in {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.CurretnContainer_item3 {
+    /* border: 1px solid black; */
+    width: 90%;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.CurretnContainer_item4 {
+    /* border: 1px solid rgb(170, 172, 115); */
+    width: 90%;
+    height: 19%;
+}
+
+.CurretnContainer_item4_button {
+    width: 30%;
+    height: 70%;
+    border: 1.5px solid blue;
+    border-radius: .2rem;
+    background-color: white;
+    columns: blue;
+    cursor: pointer;
+}
+
+.CurretnContainer_item5 {
+    width: 90%;
+    height: 10%;
+    font-size: .9rem;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.4rem;
+}

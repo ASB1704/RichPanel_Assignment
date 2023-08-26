@@ -21,7 +21,7 @@ mongoose.connect(process.env.MONGODB_URI_DEV, {
   });
 
 const routes = require('./Routes/Routes');
-app.use('/api', routes);
+app.use('/', routes);
 
 app.use((req, res) => {
   res.status(404).send('404 - Not Found');

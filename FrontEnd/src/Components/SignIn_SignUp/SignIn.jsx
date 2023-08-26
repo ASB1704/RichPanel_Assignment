@@ -3,12 +3,14 @@ import React, { useState, useEffect } from "react";
 import "./SignIn.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useGlobalContext } from "../../StateContext";
 
 export const SignIn = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
+  const {setuser} = useGlobalContext();
 
   useEffect(() => {
     const storedEmail = localStorage.getItem("username");
@@ -22,12 +24,17 @@ export const SignIn = () => {
 
   const handleSignIn = async (e) => {
     e.preventDefault()
-    const data = await axios.post('http://localhost:3000/api/signIn',{email, password})
+    const {data} = await axios.post('http://localhost:3000/signIn',{email, password})
     console.log(data);
-    if(data.status == 500) {
-      alert('Please verify your credentials')
+    if(data.status == 400 ) {
+      alert(data.msg)
+    }
+    if(data.status == 500 ) {
+      alert(data.msg)
     }
     if (data.status == 200) {
+      console.log(data.user,"datauser");
+      setuser(data.user)
       if(rememberMe){
       localStorage.setItem("username", email);
       localStorage.setItem("checkbox", "true");
@@ -66,14 +73,14 @@ export const SignIn = () => {
 
             <input
               type="submit"
-              value="Sign Up"
+              value="Login"
               id="signUpButton"
               onClick={(e)=>handleSignIn(e)}
             />
           </form>
           <p>
             New to MyApp?{" "}
-            <span onClick={() => navigate("/")}>Login</span>
+            <span onClick={() => navigate("/")}>Sign Up</span>
           </p>
         </div>
       </div>
