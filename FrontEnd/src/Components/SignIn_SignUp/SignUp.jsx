@@ -24,7 +24,7 @@ export const SignUp = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/signUp", {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/signUp`, {
         name,
         email,
         password,

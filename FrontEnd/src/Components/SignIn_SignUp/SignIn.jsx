@@ -24,7 +24,7 @@ export const SignIn = () => {
 
   const handleSignIn = async (e) => {
     e.preventDefault()
-    const {data} = await axios.post('http://localhost:3000/signIn',{email, password})
+    const {data} = await axios.post(`${import.meta.env.VITE_BACKEND_URI}/signIn`,{email, password})
     console.log(data);
     if(data.status == 400 ) {
       alert(data.msg)
