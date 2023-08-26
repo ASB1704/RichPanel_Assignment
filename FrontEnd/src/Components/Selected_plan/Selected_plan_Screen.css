@@ -78,6 +78,7 @@
 }
 
 .CurretnContainer_item_in2 {
+    cursor: pointer;
     width: 40%;
     display: flex;
     justify-content: right;

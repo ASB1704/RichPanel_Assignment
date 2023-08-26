@@ -100,7 +100,7 @@ export const Selected_plan_Screen = () => {
           )}
         </div>
         <div className="CurretnContainer_item4">
-          <button className="CurretnContainer_item4_button" onClick={() => navigate("/Plan")}>
+          <button className="CurretnContainer_item4_button" onClick={() => navigate("/Subscription_Model")}>
             {user.plan.state === "active" ? "Change Plan" : "Choose Plan"}
           </button>
         </div>
