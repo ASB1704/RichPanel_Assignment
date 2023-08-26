@@ -3,8 +3,10 @@ import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 import { useNavigate } from 'react-router-dom';
 import "./Payment_Screen.css";
 import axios from 'axios';
+import { useGlobalContext } from '../../StateContext';
 
 export const   Payment_Screen = ()=> {
+    const {user,setuser} = useGlobalContext();
     const stripe = useStripe();
     const elements = useElements();
     const navigate = useNavigate()
@@ -12,21 +14,39 @@ export const   Payment_Screen = ()=> {
         if (!stripe || !elements) {
             return;
         }
-
+    
         const { token, error } = await stripe.createToken(elements.getElement(CardElement));
-
+    
         if (error) {
             console.error(error);
         } else {
-          try{
-            const {data} = await axios.post("http://localhost:3000/create-checkout-session", { token });
-            navigate('/selected_plan')
-          } catch(e) {
-            console.log(e);
-          }
+            try {
+                // Create a payload with the user's updated plan data and email
+                const updatedPlanData = {
+                    email: user.email, // Include the user's email for identification
+                    plan: {
+                        cycle: user.plan.cycle, // Assuming cycle doesn't change during payment
+                        name: user.plan.name,   // Assuming plan name doesn't change during payment
+                        price: user.plan.price, // Assuming price doesn't change during payment
+                        devices: user.plan.devices, // Assuming devices don't change during payment
+                        state: 'active',
+                        dateofsubscription: new Date(),
+                    }
+                };
+    
+                // Make the axios PUT request to update the user's plan
+                const { data } = await axios.put("http://localhost:3000/UpdateUser", updatedPlanData);
+    
+                // After successful update, navigate to the selected_plan route
+               
+                navigate('/Selected_plan_Screen');
+            } catch (e) {
+                console.log(e);
+            }
         }
     };
-
+    
+    
     return (
         <div className='Payment_Screen_wrapper'>
             <div className="Payment_Screen_Container">
@@ -61,15 +81,15 @@ export const   Payment_Screen = ()=> {
                     <h2>Order Summary</h2>
                     <div className="Order_decription">
                         <span>Plan Name</span>
-                        <span>Basic</span>
+                        <span>{user?.plan?.name}</span>
                     </div>
                     <div className="Order_decription">
                         <span>Billing Cycle</span>
-                        <span>Monthly</span>
+                        <span>{user?.plan?.cycle}</span>
                     </div>
                     <div className="Order_decription">
                         <span>Plan price</span>
-                        <span>200rs</span>
+                        <span>{user?.plan?.price}</span>
                     </div>
                 </div>
             </div>

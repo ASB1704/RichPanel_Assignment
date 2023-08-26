@@ -97,4 +97,25 @@ const session = async (req, res) => {
   }
 };
 
-module.exports = {LOGIN,REGISTER,session}
+const UpdateUser = async (req, res) => {
+  try {
+    const { email, ...updatedUser } = req.body;
+
+    const result = await User.findOneAndUpdate(
+      { email }, // Find user by email
+      { $set: updatedUser }, // Update fields in user
+      { new: true } // Return the updated user
+    );
+
+    if (!result) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error: 'An error occurred' });
+  }
+};
+
+
+module.exports = {LOGIN,REGISTER,session,UpdateUser}

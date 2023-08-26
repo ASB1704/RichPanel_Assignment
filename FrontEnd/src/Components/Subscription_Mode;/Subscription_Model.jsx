@@ -1,11 +1,20 @@
+/* eslint-disable no-unused-vars */
 import { useState } from 'react'
 import './Subscription_Model.css'
 import { useNavigate } from "react-router-dom";
+import { useGlobalContext } from '../../StateContext';
 
 export const Subscription_Model = () => {
+    const {user,setuser} = useGlobalContext();
     const navigate = useNavigate();
     const [showMonthly, setShowMonthly] = useState(false);
     const [selectedColumnIndex, setSelectedColumnIndex] = useState(0);
+    const devices = [
+        ['Phone', 'Tablet'], 
+        ['Phone', 'Tablet', 'Computer', 'TV'], 
+        ['Phone', 'Tablet', 'Computer', 'TV'], 
+        ['Phone', 'Tablet', 'Computer', 'TV'], 
+      ];
 
     const plansMonthly = [
         { price: '₹100' },
@@ -20,13 +29,36 @@ export const Subscription_Model = () => {
         { price: '₹5000' },
         { price: '₹7000' },
     ];
+    const planNames = ['Mobile', 'Basic', 'Standard', 'Premium'];
 
     const handleToggle = () => {
         setShowMonthly(!showMonthly);
     };
+    console.log(user);
     const handleHeaderClick = (index) => {
         setSelectedColumnIndex(index);
-    };
+      
+        const selectedPlan = !showMonthly ? plansMonthly[index] : plansYearly[index];
+        const selectedDevice = devices[index]; 
+      
+      
+        const updatedUser = {
+          ...user,
+          plan: {
+            ...user?.plan,
+            cycle: !showMonthly ? 'monthly' : 'yearly', 
+            name: planNames[index], 
+            price: selectedPlan.price,
+            state: 'active', 
+            devices: selectedDevice, 
+            dateofsubscription: new Date().toISOString().split('T')[0], 
+          },
+        };
+        setuser(updatedUser);
+      };
+      
+      
+      
 
     const plansToShow = showMonthly ? plansYearly : plansMonthly;
 

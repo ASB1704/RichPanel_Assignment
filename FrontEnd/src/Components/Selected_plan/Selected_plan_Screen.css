@@ -1,5 +1,5 @@
 .CurrentMain {
-    background-color: blue;
+    background-color: #1F4D91;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -51,10 +51,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: blue;
-    color: white;
+    background-color: #CAE1FC;
+    color: #1F4D91;
     font-size: .9rem;
+    font-weight: 600;
     border-radius: .3rem;
+    padding: .05rem;
+}
+.CurretnContainer_item_in122 {
+    /* border: 1px solid red; */
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FBF0F0;
+    color: #EB9895;
+    font-size: .9rem;
+    font-weight: 600;
+    border-radius: .3rem;
+    padding: .1rem;
 }
 
 .CurretnContainer_item_in13 {
@@ -66,7 +82,8 @@
     display: flex;
     justify-content: right;
     align-items: center;
-    color: blue;
+    color: #1F4D91;
+    font-weight: 550;
 }
 
 .CurretnContainer_item2 {
@@ -78,11 +95,19 @@
     /* align-items: center; */
 }
 
-.CurretnContainer_item2_in {
+.CurretnContainer_item2_in1 {
     /* border: 1px solid red; */
     display: flex;
     justify-content: left;
     align-items: center;
+}
+.CurretnContainer_item2_in2 {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: .9rem;
+    color: #BABABA;
 }
 
 .CurretnContainer_item3 {
@@ -101,18 +126,19 @@
 .CurretnContainer_item4_button {
     width: 30%;
     height: 70%;
-    border: 1.5px solid blue;
+    border: 1.5px solid #1F4D91;
     border-radius: .2rem;
     background-color: white;
-    columns: blue;
+    color: #1F4D91;
     cursor: pointer;
 }
 
 .CurretnContainer_item5 {
+    /* border: 1px solid rgb(135, 115, 172); */
     width: 90%;
     height: 10%;
     font-size: .9rem;
-    background-color: antiquewhite;
+    background-color: #F6F6F8;
     display: flex;
     justify-content: center;
     align-items: center;
