@@ -23,6 +23,8 @@ mongoose.connect(process.env.MONGODB_URI_DEV, {
 const routes = require('./Routes/Routes');
 app.use('/', routes);
 
+app.get('/',(req,res)=>res.status(200).send('Server up!'))
+
 app.use((req, res) => {
   res.status(404).send('404 - Not Found');
 });
