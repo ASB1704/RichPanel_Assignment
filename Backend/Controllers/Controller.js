@@ -7,7 +7,7 @@ const stripe = require("stripe")(process.env.STRIPE_KEY);
 
 // <------------------------------------------------------------------------------->
 
-const LOGIN = async (req, res) => {
+const login = async (req, res) => {
   try {
     const { password, email } = req.body;
     if (!password && !email) {
@@ -35,7 +35,7 @@ const LOGIN = async (req, res) => {
 
 // <------------------------------------------------------------------------------->
 
-const REGISTER = async (req, res) => {
+const register = async (req, res) => {
   try {
     const { name, password, email } = req.body;
     console.log(name, password, email);
@@ -118,4 +118,4 @@ const UpdateUser = async (req, res) => {
 
 // <------------------------------------------------------------------------------->
 
-module.exports = { LOGIN, REGISTER, session, UpdateUser };
+module.exports = { login, register, session, UpdateUser };
