@@ -6,8 +6,7 @@
   justify-content: center;
   align-items: center;
 }
-
-.CurretnContainer {
+.CurrentMain .CurretnContainer {
   background-color: white;
   width: 37%;
   height: 40%;
@@ -17,16 +16,14 @@
   align-items: center;
   border-radius: 1rem;
 }
-
-.CurretnContainer_item1 {
+.CurrentMain .CurretnContainer .CurretnContainer_item1 {
   height: 19%;
   width: 90%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-.CurretnContainer_item_in1 {
+.CurrentMain .CurretnContainer .CurretnContainer_item1 .CurretnContainer_item_in1 {
   width: 60%;
   display: flex;
   align-items: center;
@@ -34,13 +31,12 @@
   justify-content: flex-start;
   gap: 0.2rem;
 }
-.CurretnContainer_item_in11 {
+.CurrentMain .CurretnContainer .CurretnContainer_item1 .CurretnContainer_item_in1 .CurretnContainer_item_in11 {
   font-weight: 600;
   width: auto;
   white-space: nowrap;
 }
-
-.CurretnContainer_item_in12 {
+.CurrentMain .CurretnContainer .CurretnContainer_item1 .CurretnContainer_item_in1 .CurretnContainer_item_in12 {
   width: 20%;
   height: 100%;
   display: flex;
@@ -53,7 +49,7 @@
   border-radius: 0.3rem;
   padding: 0.05rem;
 }
-.CurretnContainer_item_in122 {
+.CurrentMain .CurretnContainer .CurretnContainer_item1 .CurretnContainer_item_in1 .CurretnContainer_item_in122 {
   margin-left: 0.2rem;
   background-color: #fbf0f0;
   color: #eb9895;
@@ -62,12 +58,10 @@
   border-radius: 0.3rem;
   padding: 0.1rem;
 }
-
-.CurretnContainer_item_in13 {
+.CurrentMain .CurretnContainer .CurretnContainer_item1 .CurretnContainer_item_in1 .CurretnContainer_item_in13 {
   width: 20%;
 }
-
-.CurretnContainer_item_in2 {
+.CurrentMain .CurretnContainer .CurretnContainer_item_in2 {
   cursor: pointer;
   width: 40%;
   display: flex;
@@ -76,39 +70,34 @@
   color: #1f4d91;
   font-weight: 550;
 }
-
-.CurretnContainer_item2 {
+.CurrentMain .CurretnContainer .CurretnContainer_item2 {
   width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
-
-.CurretnContainer_item2_in1 {
+.CurrentMain .CurretnContainer .CurretnContainer_item2 .CurretnContainer_item2_in1 {
   display: flex;
   justify-content: left;
   align-items: center;
 }
-.CurretnContainer_item2_in2 {
+.CurrentMain .CurretnContainer .CurretnContainer_item2 .CurretnContainer_item2_in2 {
   display: flex;
   justify-content: left;
   align-items: center;
   font-size: 0.9rem;
   color: #bababa;
 }
-
-.CurretnContainer_item3 {
+.CurrentMain .CurretnContainer .CurretnContainer_item3 {
   width: 90%;
   font-size: 2rem;
   font-weight: 600;
 }
-
-.CurretnContainer_item4 {
+.CurrentMain .CurretnContainer .CurretnContainer_item4 {
   width: 90%;
   height: 19%;
 }
-
-.CurretnContainer_item4_button {
+.CurrentMain .CurretnContainer .CurretnContainer_item4 .CurretnContainer_item4_button {
   width: 30%;
   height: 70%;
   border: 1.5px solid #1f4d91;
@@ -117,8 +106,7 @@
   color: #1f4d91;
   cursor: pointer;
 }
-
-.CurretnContainer_item5 {
+.CurrentMain .CurretnContainer .CurretnContainer_item5 {
   width: 90%;
   height: 10%;
   font-size: 0.9rem;
@@ -127,4 +115,4 @@
   justify-content: center;
   align-items: center;
   padding: 1.4rem;
-}
+}/*# sourceMappingURL=Selected_plan_Screen.css.map */
