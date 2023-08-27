@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./Payment_Screen.css";
 import axios from "axios";
 import { useGlobalContext } from "../../StateContext";
+import { useState } from "react";
 
 export const Payment_Screen = () => {
 
@@ -11,18 +12,23 @@ export const Payment_Screen = () => {
   const stripe = useStripe();
   const elements = useElements();
   const navigate = useNavigate();
+  const [loading,setloading] = useState(false);
+
 
 // <------------------------------------------------------------>
 
   const handlePayment = async () => {
+    console.log("clicled");
     if (!stripe || !elements) {
       return;
     }
+    setloading(true)
     const { token, error } = await stripe.createToken(
       elements.getElement(CardElement)
     );
 
     if (error) {
+    setloading(false)
       console.error(error);
     } else {
       try {
@@ -42,9 +48,11 @@ export const Payment_Screen = () => {
           `${import.meta.env.VITE_BACKEND_URI}/UpdateUser`,
           updatedPlanData
         );
-
+        setloading(false)
+          
         navigate("/Selected_plan_Screen");
       } catch (e) {
+        setloading(false)
         console.log(e);
       }
     }
@@ -78,12 +86,9 @@ export const Payment_Screen = () => {
               }}
             />
           </div>
-          <input
-            type="submit"
-            value="Confirm Payment"
-            id="signUpButton"
-            onClick={handlePayment}
-          />
+         
+          <input disabled={loading} style={{backgroundColor:loading?"#6c6c6c":"#015294"}} type="submit" value={`${loading?'Confirming..':'Confirm Payment'}` }  onClick={handlePayment} id="signUpButton" />
+
         </div>
         <div className="OrderInfo">
           <h2>Order Summary</h2>

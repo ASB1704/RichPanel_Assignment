@@ -10,6 +10,7 @@ export const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
+  const [loading,setloading] = useState(false);
 
 // <------------------------------------------------------------>
 
@@ -25,8 +26,10 @@ export const SignUp = () => {
   }, []);
 
   const handleSignUp = async (e) => {
+    
     e.preventDefault();
     try {
+      setloading(true)
       const response = await axios.post(
         `${import.meta.env.VITE_BACKEND_URI}/signUp`,
         {
@@ -44,9 +47,10 @@ export const SignUp = () => {
         localStorage.removeItem("username");
         localStorage.removeItem("checkbox");
       }
-
+      setloading(false)
       navigate("/SignIn");
     } catch (error) {
+      setloading(false)
       console.error("Sign up failed", error);
     }
   };
@@ -98,7 +102,7 @@ export const SignUp = () => {
             <label htmlFor="rememberMe">Remember me</label>
           </div>
 
-          <input type="submit" value="Sign Up" id="signUpButton" />
+          <input disabled={loading} style={{backgroundColor:loading?"#6c6c6c":"#015294"}} type="submit" value={`${loading?'Signing Up..':'Sign Up'}`} id="signUpButton" />
         </form>
         <p>
           Already have an account?{" "}

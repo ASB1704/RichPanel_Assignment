@@ -11,6 +11,8 @@ export const SignIn = () => {
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const { setuser } = useGlobalContext();
+  const [loading,setloading] = useState(false);
+
 
 // <------------------------------------------------------------>
 
@@ -26,6 +28,8 @@ export const SignIn = () => {
 
   const handleSignIn = async (e) => {
     e.preventDefault();
+   try{
+    setloading(true)
     const { data } = await axios.post(
       `${import.meta.env.VITE_BACKEND_URI}/signIn`,
       { email, password }
@@ -47,9 +51,14 @@ export const SignIn = () => {
         localStorage.removeItem("username");
         localStorage.removeItem("checkbox");
       }
+    setloading(false)
       if (data.user.plan.state === "active") navigate("/Selected_plan_Screen");
       else navigate("/Subscription_Model");
     }
+   }catch(error){
+    setloading(true)
+     alert(error.message)
+   }
   };
 
 
@@ -90,12 +99,8 @@ export const SignIn = () => {
               <label htmlFor="rememberMe">Remember me</label>
             </div>
 
-            <input
-              type="submit"
-              value="Login"
-              id="signUpButton"
-              onClick={(e) => handleSignIn(e)}
-            />
+            
+            <input disabled={loading} style={{backgroundColor:loading?"#6c6c6c":"#015294"}} type="submit" value={`${loading?'Signing..':'Login'}` } onClick={(e) => handleSignIn(e)} id="signUpButton" />
           </form>
           <p>
             New to MyApp? <span onClick={() => navigate("/")}>Sign Up</span>
